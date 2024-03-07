@@ -24,13 +24,16 @@ class EventsController < ApplicationController
     render 'start'
   end
 
+  # def play
+  #     PlayEventService.new(find_event_by_id, event_params[:move_id],current_user).call
+  #     redirect_to start_tournament_event_path(@tournament, @event)
+  # end
   def play
-
-      PlayEventService.new(find_event_by_id, event_params[:move_id],current_user).call
-      redirect_to start_tournament_event_path(@tournament, @event)
-    
+    PlayEventService.new(find_event_by_id, event_params[:move_id], current_user).call
+    @event.update(last_activity_at: Time.current) 
+    redirect_to start_tournament_event_path(@tournament, @event)
   end
-  
+
 
   def index
     @q_events = Event.ransack(params[:q])
@@ -67,7 +70,6 @@ class EventsController < ApplicationController
   
   def my_events
     @events = current_user.events
-    # @events = current_user.tournaments.events.find(params[:id])
   end
   
 

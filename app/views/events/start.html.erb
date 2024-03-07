@@ -145,25 +145,25 @@
     </div>
 
     <div style="margin-left: 100px;margin-right: 100px; text-align: center; margin-top: 50px; margin-bottom: 50px; background-color: #f2f2f2; border-radius: 10px; padding: 20px; font-family: Arial, sans-serif;">
-    <% if @event.event_innings.last.inning_number == 9 && @event.event_innings.last.bottom? %>
-        <h3>This match is over, Winning Team is 
-        <% if @run > @orun %>
-            <%= @event.opponent_team.name %> with <%= @run %> runs.
+        <% if @event.event_innings.last.inning_number == 9 && @event.event_innings.last.bottom? %>
+            <h3>This match is over, Winning Team is 
+            <% if @run > @orun %>
+                <%= @event.opponent_team.name %> with <%= @run %> runs.
+            <% else %>
+                <%= @event.team.name %> with <%= @orun %> runs.
+            <% end %>
+            </h3>
         <% else %>
-            <%= @event.team.name %> with <%= @orun %> runs.
-        <% end %>
-        </h3>
-    <% else %>
-        <%= form_with(model: [@tournament, @event], url: play_tournament_event_path(@tournament, @event)) do |form| %>
-            <%= form.hidden_field :move_id, value: params[:move_id] %>
-            <div class="form-content">
-                <%= form.label :move_id, class: "form-label" %>
-                <%= form.collection_select :move_id, Move.all, :id, :name, { prompt: "Select move" }, required: true, class: "form-select form-control", autocomplete: 'off' %><br />
-                <%= form.submit "Play", class: "btn btn-outline-primary" %>
-            </div>
+            <%= form_with(model: [@tournament, @event], url: play_tournament_event_path(@tournament, @event)) do |form| %>
+                <%= form.hidden_field :move_id, value: params[:move_id] %>
+                <div class="form-content">
+                    <%= form.label :move_id, class: "form-label" %>
+                    <%= form.collection_select :move_id, Move.all, :id, :name, { prompt: "Select move" }, required: true, class: "form-select form-control", autocomplete: 'off' %><br />
+                    <%= form.submit "Play", class: "btn btn-outline-primary" %>
+                </div>
+            <% end %>   
         <% end %>   
-    <% end %>   
-</div>
+    </div>
 
 
 
@@ -290,3 +290,5 @@
     }
   });
 </script>
+
+  

@@ -39,6 +39,8 @@ gem "jbuilder"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 gem 'awesome_print', '~> 1.8'
+gem 'whenever', require: false
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false

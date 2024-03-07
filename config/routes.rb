@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  namespace :api do
+    namespace :v1, defaults: { format: 'json' } do
+      get '/live_event_listing', to: 'events#live_event_listing'
+      get '/over_events', to: 'events#over_event_listing'
+      get '/upcoming_events', to: 'events#upcoming_event_listing'
+    end
+  end
+
   resources :tournaments do
     get 'search', on: :collection
   end

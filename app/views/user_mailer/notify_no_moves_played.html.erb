@@ -1,0 +1,24 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reminder: </title>
+</head>
+<body>
+  <h1>Reminder: You haven't played any moves in the live event</h1>
+  <p>
+    Dear <%= @user.username %>,
+  </p>
+  <p>
+    This is a reminder that you haven't played any moves in the live event "<%= @event.game_type %>".
+  </p>
+  <p>
+    Please log in to your account and participate in the event as soon as possible.
+  </p>
+  <p>
+    Regards,<br>
+    The Baseball Team
+  </p>
+</body>
+</html>

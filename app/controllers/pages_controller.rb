@@ -30,7 +30,7 @@ class PagesController < ApplicationController
       @upcoming_events = current_user.events.where('start_date > ?', Date.today).where(is_live: nil)
       
     else
-      @upcoming_events = Event.where('start_date > ?', Date.today)..where(is_live: nil)
+      @upcoming_events = Event.where('start_date > ?', Date.today).where(is_live: nil)
     end
     
     

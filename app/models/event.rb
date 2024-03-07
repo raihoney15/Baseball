@@ -38,7 +38,5 @@ class Event < ApplicationRecord
     ["image_attachment", "image_blob", "opponent_team", "opponent_team_line_ups", "team", "team_line_ups", "tournament", "user"]
   end
 
-
-
 end
 
