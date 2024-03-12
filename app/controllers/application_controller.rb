@@ -3,10 +3,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
     before_action :configure_permitted_parameters, if: :devise_controller?
     protect_from_forgery
-    before_action :redirect_if_unverified
+    # before_action :redirect_if_unverified
 
     def redirect_if_unverified
       return unless signed_in? && !current_user.verified?
+     
       flash[:alert] = "Please verify your email address."
       redirect_to verify_path
     end

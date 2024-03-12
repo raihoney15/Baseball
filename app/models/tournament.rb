@@ -47,3 +47,5 @@ class Tournament < ApplicationRecord
     ["name"]
   end
 end
+
+

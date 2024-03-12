@@ -15,8 +15,8 @@
         <td><%= rooster.jersey_number %></td>
         <td>
           <%= link_to 'Show', tournament_team_rooster_path(@tournament,@team, rooster) %>
-          <%= link_to 'Edit', edit_team_rooster_path(@tournament,@team, rooster) %>
-          <%= link_to 'Destroy', team_rooster_path(@tournament,@team, rooster), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Edit', edit_tournament_team_rooster_path(@tournament,@team, rooster) %>
+          <%= link_to 'Destroy', tournament_team_rooster_path(@tournament,@team, rooster), method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>
@@ -25,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Rooster', new_tournament_team_rooster_path(@rooster) %>
+<%= link_to 'New Rooster', new_tournament_team_rooster_path(@tournament,@team,@rooster) %>

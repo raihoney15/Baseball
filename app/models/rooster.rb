@@ -6,5 +6,4 @@ class Rooster < ApplicationRecord
     validates :name, :jersey_number, presence: true
     has_many :batting_stats	, dependent: :destroy
     has_many :pitching_stats, dependent: :destroy	
-
 end
