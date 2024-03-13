@@ -2,17 +2,15 @@
 lock "~> 3.18.1"
 
 set :application, "Baseball"
-set :repo_url, "git@example.com:me/my_repo.git"
-set :application, 'urlshortner'
-set :repo_url, 'git@github.com:rkmmanivannan/rails-ec2-deploy.git' # Edit this to match your repository
-set :branch, :master
-set :deploy_to, '/home/deploy/urlshortner'
+set :repo_url, 'https://github.com/raihoney15/Baseball' # Edit this to match your repository
+set :branch, :main
+set :deploy_to, '/home/deploy/Baseball'
 set :pty, true
 set :linked_files, %w{config/database.yml config/application.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 set :keep_releases, 5
 set :rvm_type, :user
-set :rvm_ruby_version, 'ruby-2.2.3' # Edit this if you are using MRI Ruby
+set :rvm_ruby_version, 'ruby-3.0.0' # Edit this if you are using MRI Ruby
 
 set :puma_rackup, -> { File.join(current_path, 'config.ru') }
 set :puma_state, "#{shared_path}/tmp/pids/puma.state"
