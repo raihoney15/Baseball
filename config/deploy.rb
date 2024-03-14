@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 server '3.83.16.74', user: 'ubuntu', roles: %w{web app db}
 
-# lock "~> 3.18.1"
+lock "~> 3.18.1"
 set :application, "Baseball"
 set :repo_url, 'git@github.com:raihoney15/Baseball.git' # Edit this to match your repository
 set :branch, :main
@@ -14,7 +14,7 @@ set :rvm_type, :user
 set :deploy_via, :remote_cache
 set :stage, :production
 set :rvm_ruby_version, 'ruby-3.0.0' # Edit this if you are using MRI Ruby
-set :use_sudo , false
+set :use_sudo , true
 set :puma_rackup, -> { File.join(current_path, 'config.ru') }
 set :puma_state, "#{shared_path}/tmp/pids/puma.state"
 set :puma_pid, "#{shared_path}/tmp/pids/puma.pid"
@@ -31,7 +31,7 @@ set :puma_init_active_record, true
 set :puma_preload_app, true
 set :puma_start_cmd, -> { "#{fetch(:rack_env)} bundle exec puma -C #{fetch(:puma_conf)}" }
 set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa) }
-
+set :rails_env, 'production'
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 

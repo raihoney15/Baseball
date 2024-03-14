@@ -60,3 +60,6 @@
 #     # password: "please use keys"
 #   }
 # server '54.89.15.89', user: 'ubuntu', roles: %w{web app db}
+server '3.83.16.74', user: 'ubuntu', roles: %w{web app db}
+
+set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa) }
