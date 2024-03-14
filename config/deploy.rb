@@ -32,6 +32,7 @@ set :puma_preload_app, true
 set :puma_start_cmd, -> { "#{fetch(:rack_env)} bundle exec puma -C #{fetch(:puma_conf)}" }
 set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa) }
 set :rails_env, 'production'
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -65,6 +66,18 @@ append :linked_files, 'config/master.key'
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+namespace :webpacker do
+  desc 'Compile webpack assets'
+  task :compile do
+    on roles(:web) do
+      within release_path do
+        execute :bundle, :exec, 'rails', 'webpacker:compile', "RAILS_ENV=#{fetch(:rails_env)}"
+      end
+    end
+  end
+end
+
+
 namespace :deploy do
     desc "Make sure local git is in sync with remote."
     task :check_revision do
@@ -101,3 +114,5 @@ namespace :deploy do
   # kill -s SIGUSR2 pid   # Restart puma
   # kill -s SIGTERM pid   # Stop puma
   set :log_level, :debug
+
+
