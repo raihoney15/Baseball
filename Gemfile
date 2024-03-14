@@ -37,7 +37,7 @@ gem "jbuilder"
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ windows jruby ]
+# gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 gem 'awesome_print', '~> 1.8'
 
@@ -86,3 +86,5 @@ gem 'capistrano3-puma', require: false
 gem 'capistrano-rails', require: false
 gem 'capistrano-bundler', require: false
 gem 'capistrano-rvm', require: false
+
+gem "tzinfo-data", platforms: %i[mswin mswin64 mingw x64_mingw jruby ]
