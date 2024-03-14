@@ -7,7 +7,7 @@ set :repo_url, 'git@github.com:raihoney15/Baseball.git' # Edit this to match you
 set :branch, :main
 set :deploy_to, "/home/ubuntu/#{fetch(:application)}"
 set :pty, true
-set :linked_files, %w{config/database.yml config/application.yml}
+# set :linked_files, %w{config/database.yml config/application.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 set :keep_releases, 5
 set :rvm_type, :user
