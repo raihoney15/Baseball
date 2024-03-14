@@ -30,6 +30,8 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true
 set :puma_preload_app, true
 set :puma_start_cmd, -> { "#{fetch(:rack_env)} bundle exec puma -C #{fetch(:puma_conf)}" }
+set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa) }
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
