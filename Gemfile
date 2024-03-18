@@ -58,7 +58,7 @@ gem 'figaro'
 
 
 # gem 'webpacker', '~> 3.5'
-gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
+# gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
